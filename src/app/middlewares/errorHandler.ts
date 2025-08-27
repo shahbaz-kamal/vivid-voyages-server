@@ -1,33 +1,22 @@
 import { NextFunction, Request, Response } from "express";
-// import { envVars } from "../config/env";
-// import httpStatus from "http-status-codes";
+import httpStatus from "http-status-codes";
+
 import AppError from "../errorHelpers/AppError";
 
-// export const notFoundError = (
-//   err: any,
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   let message = "Route Not Found";
-//   let statusCode = 404;
-
-//   if (err instanceof AppError) {
-//     statusCode = err.statusCode;
-//     message = err.message;
-//   }
-
-//   res.status(statusCode).json({
-//     message,
-//     success: false,
-//     error: {
-//       name: "NotFoundError",
-//       details: `Cannot ${req.method} ${req.originalUrl}`,
-//     },
-//     stack: envVars.NODE_ENV === "development" ? err.stack : null,
-//   });
-//   next();
-// };
+export const notFoundError = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const message = "Route Not Found";
+  const statusCode = httpStatus.NOT_FOUND;
+  res.status(statusCode).json({
+    message,
+    success: false,
+    details: `Cannot ${req.method} ${req.originalUrl}`,
+  });
+  next();
+};
 
 export const globalErrorHandlers = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

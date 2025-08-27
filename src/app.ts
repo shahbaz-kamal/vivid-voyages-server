@@ -1,11 +1,9 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import { userRoutes } from "./app/modules/user/user.route";
+
+import httpStatus from "http-status-codes";
 import { router } from "./app/router";
-import {
-  globalErrorHandlers,
-  notFoundError,
-} from "./app/middlewares/errorHandler";
+import { globalErrorHandlers, notFoundError } from "./app/middlewares/errorHandler";
 
 const app = express();
 
@@ -21,7 +19,8 @@ app.get("/", (req: Request, res: Response) =>
 );
 
 // error handling
-// app.use(notFoundError);
 app.use(globalErrorHandlers);
+// handles 404 error
+app.use(notFoundError);
 
 export default app;
