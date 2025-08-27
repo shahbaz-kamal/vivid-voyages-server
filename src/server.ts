@@ -2,21 +2,19 @@ import { Server } from "http";
 
 import mongoose from "mongoose";
 import app from "./app";
-import { error } from "console";
+import { envVars } from "./app/config/env";
 
 let server: Server;
 
-const port = 5000;
-
 const startServer = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://note-app-admin:gFzaAkT0r9oCzZKh@cluster0.xnok4yx.mongodb.net/vivid-voyages?retryWrites=true&w=majority&appName=Cluster0"
-    );
+    await mongoose.connect(envVars.DB_URL);
     console.log("🍃 Connected to mongoose");
 
-    server = app.listen(port, () => {
-      console.log(`✈️ "Vivid Voyages" server is running on port  ${port}`);
+    server = app.listen(envVars.PORT, () => {
+      console.log(
+        `✈️ "Vivid Voyages" server is running on port  ${envVars.PORT}`
+      );
     });
   } catch (error) {}
 };
