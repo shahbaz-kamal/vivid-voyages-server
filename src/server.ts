@@ -1,8 +1,8 @@
+/* eslint-disable no-console */
 import { Server } from "http";
 
 import mongoose from "mongoose";
 import app from "./app";
-import { error } from "console";
 
 let server: Server;
 
@@ -18,7 +18,9 @@ const startServer = async () => {
     server = app.listen(port, () => {
       console.log(`✈️ "Vivid Voyages" server is running on port  ${port}`);
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log("Error connecting to mongoose", error);
+  }
 };
 
 startServer();
