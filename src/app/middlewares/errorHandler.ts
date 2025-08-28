@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status-codes";
 
 import AppError from "../errorHelpers/AppError";
+import { envVars } from "../config/env";
 
 export const notFoundError = (
   req: Request,
@@ -37,12 +38,10 @@ export const globalErrorHandlers = (
     message = error.message;
   }
   res.status(statusCode).json({
-    message,
     success: false,
-    error: {
-      name: error.name,
-      details: error.details || null,
-    },
+    message,
+    error,
+    stack: envVars.NODE_ENV === "development" ? error.stack : null,
   });
   // Generic fallback
   //   res.status(500).json({
