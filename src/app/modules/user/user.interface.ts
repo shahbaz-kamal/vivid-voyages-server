@@ -7,7 +7,7 @@ export enum Role {
   GUIDE = "GUIDE",
 }
 export interface IAuthProvider {
-  provider: string; //"google", "credentials"
+  provider: "google" | "credentials";
   providerId: string;
 }
 export enum IsActive {
