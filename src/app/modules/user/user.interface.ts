@@ -28,6 +28,6 @@ export interface IUser {
   isActive?: IsActive;
   isVerified?: boolean;
   auths: IAuthProvider[];
-  bookings: Types.ObjectId[];
+  bookings?: Types.ObjectId[];
   guides?: Types.ObjectId[];
 }
