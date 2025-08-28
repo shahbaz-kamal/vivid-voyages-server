@@ -6,10 +6,25 @@ interface EnvVars {
   PORT: string;
   DB_URL: string;
   NODE_ENV: "development" | "production";
+
+  JWT_SECRET: string;
+  JWT_ACCESS_EXPIRES: string;
+  BCRYPT_SALT_ROUND: string;
+  SUPER_ADMIN_PASSWORD: string;
+  SUPER_ADMIN_EMAIL: string;
 }
 
 const loadEnvVariables = (): EnvVars => {
-  const requiredVariables: string[] = ["PORT", "DB_URL", "NODE_ENV"];
+  const requiredVariables: string[] = [
+    "PORT",
+    "DB_URL",
+    "NODE_ENV",
+    "JWT_SECRET",
+    "JWT_ACCESS_EXPIRES",
+    "BCRYPT_SALT_ROUND",
+    "SUPER_ADMIN_PASSWORD",
+    "SUPER_ADMIN_EMAIL",
+  ];
   requiredVariables.forEach((key) => {
     if (!process.env[key]) {
       throw new Error(`Missing required environment variable: ${key}`);
@@ -19,6 +34,11 @@ const loadEnvVariables = (): EnvVars => {
     PORT: process.env.PORT as string,
     DB_URL: process.env.DB_URL as string,
     NODE_ENV: process.env.NODE_ENV as "development" | "production",
+    JWT_SECRET: process.env.JWT_SECRET as string,
+    JWT_ACCESS_EXPIRES: process.env.JWT_ACCESS_EXPIRES as string,
+    BCRYPT_SALT_ROUND: process.env.BCRYPT_SALT_ROUND as string,
+    SUPER_ADMIN_EMAIL: process.env.SUPER_ADMIN_EMAIL as string,
+    SUPER_ADMIN_PASSWORD: process.env.SUPER_ADMIN_PASSWORD as string,
   };
 };
 
