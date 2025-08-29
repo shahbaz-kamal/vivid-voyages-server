@@ -2,12 +2,11 @@
 import { Router } from "express";
 import { UserController } from "./user.controller";
 
-import { createUserZodSchema } from "./user.validation";
+import { createUserZodSchema, updateUserZodSchema } from "./user.validation";
 import { validateRequest } from "../../middlewares/validateRequest";
 
 import { checkAuth } from "../../middlewares/checkAuth";
 import { Role } from "./user.interface";
-
 
 export const UserRoutes = Router();
 
@@ -22,4 +21,9 @@ UserRoutes.get(
   UserController.getAllUsers
 );
 
-UserRoutes.patch("/:id",checkAuth(...Object.values(Role)),UserController.updateUser)
+UserRoutes.patch(
+  "/:id",
+  validateRequest(updateUserZodSchema),
+  checkAuth(...Object.values(Role)),
+  UserController.updateUser
+);
