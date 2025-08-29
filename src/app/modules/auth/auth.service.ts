@@ -1,12 +1,10 @@
 import bcryptjs from "bcryptjs";
 import AppError from "../../errorHelpers/AppError";
-import { IsActive, IUser } from "../user/user.interface";
+import { IUser } from "../user/user.interface";
 import { User } from "../user/user.model";
 
 import httpStatus from "http-status-codes";
-import jwt, { JwtPayload } from "jsonwebtoken";
-import { generateToken, verifyToken } from "../../utils/jwt";
-import { envVars } from "../../config/env";
+
 import {
   createNewAccessTokenWithRefreshToken,
   createUserToken,
@@ -37,7 +35,9 @@ const credentialsLogin = async (payload: Partial<IUser>) => {
 };
 
 export const getNewAccessToken = async (refreshToken: string) => {
-  const newAccessToken =await createNewAccessTokenWithRefreshToken(refreshToken);
+  const newAccessToken = await createNewAccessTokenWithRefreshToken(
+    refreshToken
+  );
   return { accessToken: newAccessToken };
 };
 
