@@ -12,6 +12,7 @@ const credentialsLogin = catchAsync(
     //   const user = await UserServices.createUser(req.body);
     const loginInfo = await AuthServices.credentialsLogin(req.body);
     setAuthCookie(res, loginInfo);
+
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.CREATED,
@@ -20,6 +21,7 @@ const credentialsLogin = catchAsync(
     });
   }
 );
+
 const getNewAccessToken = catchAsync(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async (req: Request, res: Response, next: NextFunction) => {

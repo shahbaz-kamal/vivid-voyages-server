@@ -19,6 +19,7 @@ export const checkAuth =
         accessToken,
         envVars.JWT_SECRET
       ) as JwtPayload;
+      
       const isUserExist = await User.findOne({
         email: verifiedToken.email,
       })

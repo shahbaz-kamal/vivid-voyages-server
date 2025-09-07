@@ -29,10 +29,7 @@ const startServer = async () => {
   await seedSuperAdmin();
 })();
 
-(async () => {
-  await startServer();
-  await seedSuperAdmin();
-})();
+
 
 //unhandled rejection
 process.on("unhandledRejection", (error) => {

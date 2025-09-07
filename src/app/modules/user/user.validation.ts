@@ -33,6 +33,8 @@ export const createUserZodSchema = z.object({
     })
     .optional(),
 });
+
+
 export const updateUserZodSchema = z.object({
   name: z
     .string("Name is required")
