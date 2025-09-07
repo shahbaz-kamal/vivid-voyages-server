@@ -10,6 +10,7 @@ import {
 import passport from "passport";
 import expressSession from "express-session";
 import { envVars } from "./app/config/env";
+import './app/config/passport'
 
 const app = express();
 
