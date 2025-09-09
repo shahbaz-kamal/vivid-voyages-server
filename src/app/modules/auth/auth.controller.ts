@@ -16,9 +16,9 @@ const credentialsLogin = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     passport.authenticate("local", async (error: any, user: any, info: any) => {
       if (error) {
-        return next(error);
+        return next(new AppError(401, error));
       }
-      if (!user) return next(error);
+      if (!user) return next(new AppError(401, info.message));
 
       const tokenInfo = createUserToken(user);
       delete user.toObject().password;
