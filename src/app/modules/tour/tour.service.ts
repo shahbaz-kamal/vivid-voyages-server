@@ -1,5 +1,7 @@
+import { QueryBuilder } from "../../utils/QueryBuilder";
+import { tourSearchableFields } from "./tour.constants";
 import { ITour, ITourType } from "./tour.interface";
-import { Tour } from "./tour.model";
+import { Tour, TourType } from "./tour.model";
 
 const createTour = async (payload: ITour) => {
   const existingTour = await Tour.findOne({ title: payload.title });
@@ -89,29 +91,29 @@ const createTour = async (payload: ITour) => {
 //     }
 // };
 
-// const getAllTours = async (query: Record<string, string>) => {
+const getAllTours = async (query: Record<string, string>) => {
 
-//     const queryBuilder = new QueryBuilder(Tour.find(), query)
+    const queryBuilder = new QueryBuilder(Tour.find(), query)
 
-//     const tours = await queryBuilder
-//         .search(tourSearchableFields)
-//         .filter()
-//         .sort()
-//         .fields()
-//         .paginate()
+    const tours = await queryBuilder
+        .search(tourSearchableFields)
+        .filter()
+        .sort()
+        .fields()
+        .paginate()
 
-//     // const meta = await queryBuilder.getMeta()
+    // const meta = await queryBuilder.getMeta()
 
-//     const [data, meta] = await Promise.all([
-//         tours.build(),
-//         queryBuilder.getMeta()
-//     ])
+    const [data, meta] = await Promise.all([
+        tours.build(),
+        queryBuilder.getMeta()
+    ])
 
-//     return {
-//         data,
-//         meta
-//     }
-// };
+    return {
+        data,
+        meta
+    }
+};
 
 const updateTour = async (id: string, payload: Partial<ITour>) => {
   const existingTour = await Tour.findById(id);
@@ -121,15 +123,15 @@ const updateTour = async (id: string, payload: Partial<ITour>) => {
   }
 
   if (payload.title) {
-      const baseSlug = payload.title.toLowerCase().split(" ").join("-")
-      let slug = `${baseSlug}`
+    const baseSlug = payload.title.toLowerCase().split(" ").join("-");
+    let slug = `${baseSlug}`;
 
-      let counter = 0;
-      while (await Tour.exists({ slug })) {
-          slug = `${slug}-${counter++}` // dhaka-division-2
-      }
+    let counter = 0;
+    while (await Tour.exists({ slug })) {
+      slug = `${slug}-${counter++}`; // dhaka-division-2
+    }
 
-      payload.slug = slug
+    payload.slug = slug;
   }
 
   const updatedTour = await Tour.findByIdAndUpdate(id, payload, { new: true });
@@ -147,7 +149,7 @@ const createTourType = async (payload: ITourType) => {
   if (existingTourType) {
     throw new Error("Tour type already exists.");
   }
-
+const name=payload.name
   return await TourType.create({ name });
 };
 const getAllTourTypes = async () => {
@@ -179,7 +181,7 @@ export const TourService = {
   deleteTourType,
   updateTourType,
   getAllTourTypes,
-  //   getAllTours,
+    getAllTours,
   updateTour,
   deleteTour,
 };
