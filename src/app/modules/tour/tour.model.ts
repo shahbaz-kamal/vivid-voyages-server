@@ -6,7 +6,7 @@ const tourTypeSchema = new Schema<ITourType>(
   { timestamps: true }
 );
 
-const TourType = model<ITourType>("TourType", tourTypeSchema);
+export const TourType = model<ITourType>("TourType", tourTypeSchema);
 const tourSchema = new Schema<ITour>(
   {
     title: { type: String, required: true },
