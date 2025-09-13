@@ -115,7 +115,8 @@ const getAllTours = async (query: Record<string, string>) => {
     }
 };
 
-const updateTour = async (id: string, payload: Partial<ITour>) => {
+const updateTour = async (id: string, payload: Partial<ITour>) => { 
+  
   const existingTour = await Tour.findById(id);
 
   if (!existingTour) {
