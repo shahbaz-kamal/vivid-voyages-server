@@ -1,0 +1,358 @@
+[
+  {
+    "title": "Mystical Sundarbans Safari",
+    "slug": "mystical-sundarbans-safari-tour",
+    "description": "Experience the majestic wildlife and mangroves of Sundarbans.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/1/13/Khulna_Skyline.jpg"
+    ],
+    "location": "Khulna, Bangladesh",
+    "costFrom": 14000,
+    "startDate": "2026-05-01T08:00:00.000Z",
+    "endDate": "2026-05-03T18:00:00.000Z",
+    "included": ["Guide", "Safari", "Meals"],
+    "excluded": ["Transport", "Personal Expenses"],
+    "amenities": ["Guide", "Meals", "Safari"],
+    "tourPlan": [
+      "Day 1: Mangrove Exploration",
+      "Day 2: Wildlife Safari",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 10,
+    "minAge": 12,
+    "division": "68c6ab7bb9de15d7ff38d04e",
+    "tourType": "68c6ad79b9de15d7ff38d059",
+    "createdAt": "2025-09-14T15:20:00.000Z",
+    "updatedAt": "2025-09-14T15:20:00.000Z"
+  },
+  {
+    "title": "Tea Garden Walk",
+    "slug": "tea-garden-walk-tour",
+    "description": "Walk through scenic tea gardens and hills.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/0/0e/Sylhet_Tea_Garden.jpg"
+    ],
+    "location": "Sylhet, Bangladesh",
+    "costFrom": 10000,
+    "startDate": "2026-05-05T08:00:00.000Z",
+    "endDate": "2026-05-07T18:00:00.000Z",
+    "included": ["Guide", "Transport", "Meals"],
+    "excluded": ["Flight Tickets", "Personal Expenses"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": [
+      "Day 1: Tea Garden Tour",
+      "Day 2: Hill Trekking",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 12,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d050",
+    "tourType": "68c6ad79b9de15d7ff38d057",
+    "createdAt": "2025-09-14T15:25:00.000Z",
+    "updatedAt": "2025-09-14T15:25:00.000Z"
+  },
+  {
+    "title": "Barishal Canal Cruise",
+    "slug": "barishal-canal-cruise-tour",
+    "description": "Explore the canals and rivers of Barishal on a scenic boat ride.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b3/Barisal_Bangladesh.jpg"
+    ],
+    "location": "Barishal, Bangladesh",
+    "costFrom": 9000,
+    "startDate": "2026-05-10T08:00:00.000Z",
+    "endDate": "2026-05-12T18:00:00.000Z",
+    "included": ["Guide", "Boat Ride", "Meals"],
+    "excluded": ["Transport", "Personal Expenses"],
+    "amenities": ["Guide", "Meals", "Boat Ride"],
+    "tourPlan": [
+      "Day 1: River Cruise",
+      "Day 2: Village Visit",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 15,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d051",
+    "tourType": "68c6ad79b9de15d7ff38d057",
+    "createdAt": "2025-09-14T15:30:00.000Z",
+    "updatedAt": "2025-09-14T15:30:00.000Z"
+  },
+  {
+    "title": "Rangpur Heritage Walk",
+    "slug": "rangpur-heritage-walk-tour",
+    "description": "Discover historical landmarks and palaces in Rangpur.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/4/44/Tajhat_Palace_Rangpur.jpg"
+    ],
+    "location": "Rangpur, Bangladesh",
+    "costFrom": 8500,
+    "startDate": "2026-05-15T08:00:00.000Z",
+    "endDate": "2026-05-17T18:00:00.000Z",
+    "included": ["Guide", "Entry Fees", "Meals"],
+    "excluded": ["Transport", "Personal Expenses"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": [
+      "Day 1: Palace Visit",
+      "Day 2: Museum Visit",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 12,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d052",
+    "tourType": "68c6ad79b9de15d7ff38d058",
+    "createdAt": "2025-09-14T15:35:00.000Z",
+    "updatedAt": "2025-09-14T15:35:00.000Z"
+  },
+  {
+    "title": "Cultural Tour in Mymensingh",
+    "slug": "cultural-tour-in-mymensingh-tour",
+    "description": "Explore temples, museums, and local traditions.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/20/Shashi_Lodge_Mymensingh.jpg"
+    ],
+    "location": "Mymensingh, Bangladesh",
+    "costFrom": 9000,
+    "startDate": "2026-05-20T08:00:00.000Z",
+    "endDate": "2026-05-22T18:00:00.000Z",
+    "included": ["Guide", "Meals", "Transport"],
+    "excluded": ["Personal Expenses"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": [
+      "Day 1: Village Walk",
+      "Day 2: Temple Visit",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 15,
+    "minAge": 12,
+    "division": "68c6ab7bb9de15d7ff38d053",
+    "tourType": "68c6ad79b9de15d7ff38d059",
+    "createdAt": "2025-09-14T15:40:00.000Z",
+    "updatedAt": "2025-09-14T15:40:00.000Z"
+  },
+  {
+    "title": "Comilla Historical Sites",
+    "slug": "comilla-historical-sites-tour",
+    "description": "Visit ancient ruins and Buddhist heritage in Comilla.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/8/8b/Mainamati_Comilla.jpg"
+    ],
+    "location": "Comilla, Bangladesh",
+    "costFrom": 9500,
+    "startDate": "2026-05-25T08:00:00.000Z",
+    "endDate": "2026-05-27T18:00:00.000Z",
+    "included": ["Guide", "Entry Fees", "Meals"],
+    "excluded": ["Transport", "Personal Expenses"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": [
+      "Day 1: Museum Visit",
+      "Day 2: Heritage Walk",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 12,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d054",
+    "tourType": "68c6ad79b9de15d7ff38d058",
+    "createdAt": "2025-09-14T15:45:00.000Z",
+    "updatedAt": "2025-09-14T15:45:00.000Z"
+  },
+  {
+    "title": "Cox's Bazar Water Adventure",
+    "slug": "coxs-bazar-water-adventure-tour",
+    "description": "Enjoy water sports, island hopping, and beach fun.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/1/1f/Cox%27s_Bazar_Beach.jpg"
+    ],
+    "location": "Cox's Bazar, Bangladesh",
+    "costFrom": 15000,
+    "startDate": "2026-06-01T08:00:00.000Z",
+    "endDate": "2026-06-03T18:00:00.000Z",
+    "included": ["Guide", "Meals", "Beach Activities"],
+    "excluded": ["Transport", "Flight Tickets"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": ["Day 1: Beach Fun", "Day 2: Island Visit", "Day 3: Departure"],
+    "maxGuest": 20,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d055",
+    "tourType": "68c6ad79b9de15d7ff38d05b",
+    "createdAt": "2025-09-14T15:50:00.000Z",
+    "updatedAt": "2025-09-14T15:50:00.000Z"
+  },
+  {
+    "title": "Riverside Exploration",
+    "slug": "riverside-exploration-tour",
+    "description": "Enjoy boating and riverside picnic activities.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b3/Barisal_Bangladesh.jpg"
+    ],
+    "location": "Barishal, Bangladesh",
+    "costFrom": 10000,
+    "startDate": "2026-06-05T08:00:00.000Z",
+    "endDate": "2026-06-07T18:00:00.000Z",
+    "included": ["Guide", "Boat Ride", "Meals"],
+    "excluded": ["Transport", "Personal Expenses"],
+    "amenities": ["Guide", "Meals", "Boat Ride"],
+    "tourPlan": ["Day 1: Village Walk", "Day 2: Boat Ride", "Day 3: Departure"],
+    "maxGuest": 15,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d051",
+    "tourType": "68c6ad79b9de15d7ff38d057",
+    "createdAt": "2025-09-14T15:55:00.000Z",
+    "updatedAt": "2025-09-14T15:55:00.000Z"
+  },
+  {
+    "title": "Sylhet Waterfall Trek",
+    "slug": "sylhet-waterfall-trek-tour",
+    "description": "Hike to picturesque waterfalls and enjoy nature.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/0/0e/Sylhet_Tea_Garden.jpg"
+    ],
+    "location": "Sylhet, Bangladesh",
+    "costFrom": 12000,
+    "startDate": "2026-06-10T08:00:00.000Z",
+    "endDate": "2026-06-12T18:00:00.000Z",
+    "included": ["Guide", "Transport", "Meals"],
+    "excluded": ["Flight Tickets", "Personal Expenses"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": [
+      "Day 1: Trekking",
+      "Day 2: Waterfall Visit",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 12,
+    "minAge": 12,
+    "division": "68c6ab7bb9de15d7ff38d050",
+    "tourType": "68c6ad79b9de15d7ff38d05a",
+    "createdAt": "2025-09-14T16:00:00.000Z",
+    "updatedAt": "2025-09-14T16:00:00.000Z"
+  },
+  {
+    "title": "Khulna Wildlife Trail",
+    "slug": "khulna-wildlife-trail-tour",
+    "description": "Spot rare wildlife in Khulna region.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/1/13/Khulna_Skyline.jpg"
+    ],
+    "location": "Khulna, Bangladesh",
+    "costFrom": 13000,
+    "startDate": "2026-06-15T08:00:00.000Z",
+    "endDate": "2026-06-17T18:00:00.000Z",
+    "included": ["Guide", "Safari", "Meals"],
+    "excluded": ["Transport", "Personal Expenses"],
+    "amenities": ["Guide", "Meals", "Safari"],
+    "tourPlan": [
+      "Day 1: Jungle Trekking",
+      "Day 2: Wildlife Safari",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 10,
+    "minAge": 12,
+    "division": "68c6ab7bb9de15d7ff38d04e",
+    "tourType": "68c6ad79b9de15d7ff38d059",
+    "createdAt": "2025-09-14T16:05:00.000Z",
+    "updatedAt": "2025-09-14T16:05:00.000Z"
+  },
+  {
+    "title": "Heritage Village Tour",
+    "slug": "heritage-village-tour-tour",
+    "description": "Explore traditional villages and crafts.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/20/Shashi_Lodge_Mymensingh.jpg"
+    ],
+    "location": "Mymensingh, Bangladesh",
+    "costFrom": 9500,
+    "startDate": "2026-06-20T08:00:00.000Z",
+    "endDate": "2026-06-22T18:00:00.000Z",
+    "included": ["Guide", "Meals", "Transport"],
+    "excluded": ["Personal Expenses"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": [
+      "Day 1: Village Walk",
+      "Day 2: Temple Visit",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 15,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d053",
+    "tourType": "68c6ad79b9de15d7ff38d059",
+    "createdAt": "2025-09-14T16:10:00.000Z",
+    "updatedAt": "2025-09-14T16:10:00.000Z"
+  },
+  {
+    "title": "Comilla Ancient Ruins",
+    "slug": "comilla-ancient-ruins-tour",
+    "description": "Explore ancient Buddhist sites and monuments.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/8/8b/Mainamati_Comilla.jpg"
+    ],
+    "location": "Comilla, Bangladesh",
+    "costFrom": 10000,
+    "startDate": "2026-06-25T08:00:00.000Z",
+    "endDate": "2026-06-27T18:00:00.000Z",
+    "included": ["Guide", "Entry Fees", "Meals"],
+    "excluded": ["Transport", "Personal Expenses"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": [
+      "Day 1: Museum Visit",
+      "Day 2: Heritage Walk",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 12,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d054",
+    "tourType": "68c6ad79b9de15d7ff38d058",
+    "createdAt": "2025-09-14T16:15:00.000Z",
+    "updatedAt": "2025-09-14T16:15:00.000Z"
+  },
+  {
+    "title": "Adventure Trek",
+    "slug": "adventure-trek-tour",
+    "description": "A thrilling trek through hills and rivers.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/0/0e/Sylhet_Tea_Garden.jpg"
+    ],
+    "location": "Sylhet, Bangladesh",
+    "costFrom": 12500,
+    "startDate": "2026-07-01T08:00:00.000Z",
+    "endDate": "2026-07-03T18:00:00.000Z",
+    "included": ["Guide", "Transport", "Meals"],
+    "excluded": ["Flight Tickets", "Personal Expenses"],
+    "amenities": ["Guide", "Meals"],
+    "tourPlan": [
+      "Day 1: Trekking",
+      "Day 2: Adventure Activities",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 12,
+    "minAge": 15,
+    "division": "68c6ab7bb9de15d7ff38d050",
+    "tourType": "68c6ad79b9de15d7ff38d05a",
+    "createdAt": "2025-09-14T16:20:00.000Z",
+    "updatedAt": "2025-09-14T16:20:00.000Z"
+  },
+  {
+    "title": "Barishal River Walk",
+    "slug": "barishal-river-walk-tour",
+    "description": "Scenic river tour and local village exploration.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b3/Barisal_Bangladesh.jpg"
+    ],
+    "location": "Barishal, Bangladesh",
+    "costFrom": 9000,
+    "startDate": "2026-07-05T08:00:00.000Z",
+    "endDate": "2026-07-07T18:00:00.000Z",
+    "included": ["Guide", "Boat Ride", "Meals"],
+    "excluded": ["Transport", "Personal Expenses"],
+    "amenities": ["Guide", "Meals", "Boat Ride"],
+    "tourPlan": [
+      "Day 1: River Cruise",
+      "Day 2: Village Walk",
+      "Day 3: Departure"
+    ],
+    "maxGuest": 15,
+    "minAge": 10,
+    "division": "68c6ab7bb9de15d7ff38d051",
+    "tourType": "68c6ad79b9de15d7ff38d057",
+    "createdAt": "2025-09-14T16:25:00.000Z",
+    "updatedAt": "2025-09-14T16:25:00.000Z"
+  }
+]

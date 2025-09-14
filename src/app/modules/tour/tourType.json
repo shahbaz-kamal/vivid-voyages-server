@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Adventure",
+    "createdAt": "2025-09-10T10:00:00.000Z",
+    "updatedAt": "2025-09-10T10:00:00.000Z"
+  },
+  {
+    "name": "Historical",
+    "createdAt": "2025-09-10T10:00:00.000Z",
+    "updatedAt": "2025-09-10T10:00:00.000Z"
+  },
+  {
+    "name": "Cultural",
+    "createdAt": "2025-09-10T10:00:00.000Z",
+    "updatedAt": "2025-09-10T10:00:00.000Z"
+  },
+  {
+    "name": "Wildlife",
+    "createdAt": "2025-09-10T10:00:00.000Z",
+    "updatedAt": "2025-09-10T10:00:00.000Z"
+  },
+  {
+    "name": "Beach Holiday",
+    "createdAt": "2025-09-10T10:00:00.000Z",
+    "updatedAt": "2025-09-10T10:00:00.000Z"
+  }
+]

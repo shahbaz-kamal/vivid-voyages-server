@@ -3,7 +3,7 @@ import { ITour, ITourType } from "./tour.interface";
 
 const tourTypeSchema = new Schema<ITourType>(
   { name: { type: String, required: true, unique: true } },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
 export const TourType = model<ITourType>("TourType", tourTypeSchema);
