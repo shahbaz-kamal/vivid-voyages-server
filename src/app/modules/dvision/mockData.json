@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Dhaka",
+    "slug": "dhaka-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Dhaka_Skyline.jpg",
+    "description": "Capital city of Bangladesh, known for its vibrant culture and heritage."
+  },
+  {
+    "name": "Chattogram",
+    "slug": "chattogram-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Chittagong_Port.jpg",
+    "description": "A major coastal city and financial hub of Bangladesh."
+  },
+  {
+    "name": "Khulna",
+    "slug": "khulna-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/13/Khulna_Skyline.jpg",
+    "description": "Located near the Sundarbans, famous for its rivers and mangroves."
+  },
+  {
+    "name": "Rajshahi",
+    "slug": "rajshahi-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Padma_River_Rajshahi.jpg",
+    "description": "Known as the Silk City and Education City of Bangladesh."
+  },
+  {
+    "name": "Sylhet",
+    "slug": "sylhet-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Sylhet_Tea_Garden.jpg",
+    "description": "Famous for tea gardens, rolling hills, and natural beauty."
+  },
+  {
+    "name": "Barishal",
+    "slug": "barishal-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Barisal_Bangladesh.jpg",
+    "description": "Known as the Venice of the East, rich in rivers and canals."
+  },
+  {
+    "name": "Rangpur",
+    "slug": "rangpur-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/4/44/Tajhat_Palace_Rangpur.jpg",
+    "description": "A division with rich agriculture and historical landmarks."
+  },
+  {
+    "name": "Mymensingh",
+    "slug": "mymensingh-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/2/20/Shashi_Lodge_Mymensingh.jpg",
+    "description": "Home to Bangladesh Agricultural University and lush countryside."
+  },
+  {
+    "name": "Comilla",
+    "slug": "comilla-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Mainamati_Comilla.jpg",
+    "description": "Rich in history and cultural heritage."
+  },
+  {
+    "name": "Cox's Bazar",
+    "slug": "coxs-bazar-division",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Cox%27s_Bazar_Beach.jpg",
+    "description": "Famous for having the world’s longest natural sea beach."
+  }
+]
