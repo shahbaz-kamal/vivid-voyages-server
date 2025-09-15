@@ -28,7 +28,7 @@ router.get(
 router.get(
   "/my-bookings",
   checkAuth(...Object.values(Role)),
-  BookingController.myBookings
+  BookingController.getUserBookings
 );
 //*  get single Bookings ===>   "backened_URL/api/v1/booking/bookingId"
 router.get(
