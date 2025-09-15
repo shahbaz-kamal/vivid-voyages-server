@@ -7,6 +7,7 @@ import { Payment } from "../payment/payment.model";
 import crypto from "crypto";
 import { Tour } from "../tour/tour.model";
 import { PAYMENT_STATUS } from "../payment/payment.interface";
+import { SSLService } from "../sslCommerze/sslCommerze.service";
 
 const generateTransactionId = () => {
   const timestamp = Date.now(); // milliseconds
@@ -67,7 +68,9 @@ const createBooking = async (payload: Partial<IBooking>, userId: string) => {
       .populate("user", "name email phone address")
       .populate("tour", "title costFrom")
       .populate("payment");
+// const sslPayment=await SSLService.sslPaymentInit({
 
+// })
     await session.commitTransaction();
     return updateBooking;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
