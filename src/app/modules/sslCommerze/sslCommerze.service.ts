@@ -6,14 +6,14 @@ import httpStatus from "http-status-codes";
 const sslPaymentInit = async (payload: ISSLCommerze) => {
   try {
     const data = {
-      store_id: envVars.SSL.SSL_PAYMENT_API,
+      store_id: envVars.SSL.SSL_STORE_ID,
       store_passwd: envVars.SSL.SSL_STORE_PASS,
       total_amount: payload.amount,
       currency: "BDT",
       tran_id: payload.transactionId,
-      success_url: envVars.SSL.SSL_SUCCESS_BACKEND_URL, //yoursite.com/success.php,
-      fail_url: envVars.SSL.SSL_FAIL_BACKEND_URL, //yoursite.com/fail.php,
-      cancel_url: envVars.SSL.SSL_CANCEL_BACKEND_URL, //yoursite.com/cancel.php,
+      success_url: `${envVars.SSL.SSL_SUCCESS_BACKEND_URL}?transactionId=${payload.transactionId}&amount=${payload.amount}&status=success`, //yoursite.com/success.php,
+      fail_url: `${envVars.SSL.SSL_FAIL_BACKEND_URL}?transactionId=${payload.transactionId}&amount=${payload.amount}&status=fail`, //yoursite.com/fail.php,
+      cancel_url: `${envVars.SSL.SSL_CANCEL_BACKEND_URL}?transactionId=${payload.transactionId}&amount=${payload.amount}&status=cancel`, //yoursite.com/cancel.php,
       shipping_method: "N/A",
       product_name: "Appoinment",
       product_catgory: "Service",
@@ -35,11 +35,11 @@ const sslPaymentInit = async (payload: ISSLCommerze) => {
       ship_state: "N/A",
       ship_postcode: 1000,
       ship_country: "N/A",
-      multi_card_name: "N/A",
-      value_a: "N/A",
-      value_b: "N/A",
-      value_c: "N/A",
-      value_d: "N/A",
+      // multi_card_name: "N/A",
+      // value_a: "N/A",
+      // value_b: "N/A",
+      // value_c: "N/A",
+      // value_d: "N/A",
     };
 
     const response = await axios({

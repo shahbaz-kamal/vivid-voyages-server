@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import AppError from "../../errorHelpers/AppError";
 import { User } from "../user/user.model";
 import { BOOKING_STATUS, IBooking } from "./booking.interface";
@@ -8,6 +9,7 @@ import crypto from "crypto";
 import { Tour } from "../tour/tour.model";
 import { PAYMENT_STATUS } from "../payment/payment.interface";
 import { SSLService } from "../sslCommerze/sslCommerze.service";
+import { ISSLCommerze } from "../sslCommerze/sslCommerze.interface";
 
 const generateTransactionId = () => {
   const timestamp = Date.now(); // milliseconds
@@ -57,7 +59,7 @@ const createBooking = async (payload: Partial<IBooking>, userId: string) => {
       { session }
     );
 
-    const updateBooking = await Booking.findByIdAndUpdate(
+    const updatedBooking = await Booking.findByIdAndUpdate(
       booking[0]._id,
 
       {
@@ -68,11 +70,24 @@ const createBooking = async (payload: Partial<IBooking>, userId: string) => {
       .populate("user", "name email phone address")
       .populate("tour", "title costFrom")
       .populate("payment");
-// const sslPayment=await SSLService.sslPaymentInit({
 
-// })
+    const userAddress = (updatedBooking?.user as any).address;
+    const userEmail = (updatedBooking?.user as any).email;
+    const userPhone = (updatedBooking?.user as any).phone;
+    const userName = (updatedBooking?.user as any).name;
+
+    const sslPayload: ISSLCommerze = {
+      name: userName,
+      address: userAddress,
+      email: userEmail,
+      phoneNumber: userPhone,
+      amount: amount,
+      transactionId: transactionId,
+    };
+    const sslPayment = await SSLService.sslPaymentInit(sslPayload);
     await session.commitTransaction();
-    return updateBooking;
+    session.endSession()
+    return { paymentURL: sslPayment.GatewayPageURL, booking: updatedBooking };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error) {
     await session.abortTransaction();
