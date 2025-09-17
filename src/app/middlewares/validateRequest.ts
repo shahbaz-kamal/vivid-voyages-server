@@ -6,7 +6,8 @@ export const validateRequest =
   (zodChema: ZodObject<any>) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      req.body = JSON.parse(req.body.data) || req.body;
+      if (req.body.data) req.body = JSON.parse(req.body?.data);
+
       // console.log("old body", req.body);
       req.body = await zodChema.parseAsync(req.body);
       console.log("New body", req.body);

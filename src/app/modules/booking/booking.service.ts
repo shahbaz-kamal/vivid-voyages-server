@@ -5,17 +5,11 @@ import { BOOKING_STATUS, IBooking } from "./booking.interface";
 import httpStatus from "http-status-codes";
 import { Booking } from "./booking.model";
 import { Payment } from "../payment/payment.model";
-import crypto from "crypto";
 import { Tour } from "../tour/tour.model";
 import { PAYMENT_STATUS } from "../payment/payment.interface";
 import { SSLService } from "../sslCommerze/sslCommerze.service";
 import { ISSLCommerze } from "../sslCommerze/sslCommerze.interface";
-
-const generateTransactionId = () => {
-  const timestamp = Date.now(); // milliseconds
-  const random = crypto.randomBytes(6).toString("hex"); // 12-char random string
-  return `trans_${timestamp}_${random}`;
-};
+import { generateTransactionId } from "../../utils/generateTransactionId";
 
 const createBooking = async (payload: Partial<IBooking>, userId: string) => {
   const transactionId = generateTransactionId();
@@ -86,7 +80,7 @@ const createBooking = async (payload: Partial<IBooking>, userId: string) => {
     };
     const sslPayment = await SSLService.sslPaymentInit(sslPayload);
     await session.commitTransaction();
-    session.endSession()
+    session.endSession();
     return { paymentURL: sslPayment.GatewayPageURL, booking: updatedBooking };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error) {

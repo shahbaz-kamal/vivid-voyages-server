@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextFunction, Request, Response } from "express";
 
 import AppError from "../errorHelpers/AppError";
@@ -7,21 +10,31 @@ import { handleDuplicateError } from "../helpers/handleDuplicateError";
 import { handleCastError } from "../helpers/handleCastError";
 import { handleZodError } from "../helpers/handleZodError";
 import { handleValidationError } from "../helpers/handleValidationError";
+import { deleteFromCloudinary } from "../config/cloudinary.config";
 
-export const globalErrorHandlers = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const globalErrorHandlers = async (
   error: any,
   req: Request,
   res: Response,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   next: NextFunction
 ) => {
   let message = "Something went Wrong";
   let statusCode = 500;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   let errorSources: TErrorSources[] = [];
-  // eslint-disable-next-line no-console
+
   if (envVars.NODE_ENV === "development") console.log(error);
+  //handling delet image from cloudinary
+
+  if (req.file) await deleteFromCloudinary(req.file.path);
+  if (req.files && Array.isArray(req.files) && req.files.length) {
+    const imageUrls = (req.files as Express.Multer.File[]).map(
+      (file) => file.path
+    );
+    await Promise.all(imageUrls.map((url) => deleteFromCloudinary(url)));
+  }
+
   // duplicate error
   if (error.code === 11000) {
     const simplifiedError = handleDuplicateError(error);
