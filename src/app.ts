@@ -27,6 +27,7 @@ app.use(passport.session());
 //rest
 app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 app.use(cors());
 
 // router middlware
