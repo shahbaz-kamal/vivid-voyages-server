@@ -7,12 +7,10 @@ import { JwtPayload } from "jsonwebtoken";
 import httpStatus from "http-status-codes";
 import { User } from "./user.model";
 
-
-
 const createUser = async (payload: Partial<IUser>) => {
   const { email, password, ...rest } = payload;
   const isUserExist = await User.findOne({ email });
-  if (isUserExist) { 
+  if (isUserExist) {
     throw new AppError(httpStatus.BAD_REQUEST, "User Already Exist");
   }
   const hashedPassword = await bcryptjs.hash(
@@ -41,6 +39,20 @@ const getAllUsers = async () => {
     meta: { total: totalUsers },
   };
 };
+const getSingleUser = async (payload: string) => {
+  const user = await User.findById(payload).select("-password");
+
+  return {
+    data: user,
+  };
+};
+const getMe = async (myId: string) => {
+  const user = await User.findById(myId).select("-password");
+
+  return {
+    data: user,
+  };
+};
 
 const updateUser = async (
   userId: string,
@@ -52,8 +64,6 @@ const updateUser = async (
   if (!isUserExist) {
     throw new AppError(httpStatus.NOT_FOUND, "User Not Found");
   }
-
-  
 
   if (payload.role) {
     if (decodedToken.role === Role.USER || decodedToken.role === Role.GUIDE) {
@@ -79,9 +89,12 @@ const updateUser = async (
     new: true,
     runValidators: true,
   });
-  return newUpdatedUser
+  return newUpdatedUser;
 };
 
-
-
-export const UserServices = { createUser, getAllUsers,updateUser };
+export const UserServices = {
+  createUser,
+  getAllUsers,
+  updateUser,
+  getSingleUser,getMe
+};

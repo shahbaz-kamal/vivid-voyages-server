@@ -86,25 +86,6 @@ const logout = catchAsync(
     });
   }
 );
-const resetPassword = catchAsync(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async (req: Request, res: Response, next: NextFunction) => {
-    const decodedToken = req.user;
-    const newPassword = req.body.newPassword;
-    const oldPassword = req.body.oldPassword;
-    await AuthServices.resetPassword(
-      oldPassword,
-      newPassword,
-      decodedToken as JwtPayload
-    );
-    sendResponse(res, {
-      success: true,
-      statusCode: httpStatus.CREATED,
-      message: "Password changed successfully ",
-      data: null,
-    });
-  }
-);
 const changePassword = catchAsync(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async (req: Request, res: Response, next: NextFunction) => {
@@ -138,6 +119,34 @@ const setPassword = catchAsync(
     });
   }
 );
+const forgotPassword = catchAsync(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { email } = req.body;
+    await AuthServices.forgotPassword(email);
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.CREATED,
+      message: "Email sent successfully ",
+      data: null,
+    });
+  }
+);
+const resetPassword = catchAsync(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async (req: Request, res: Response, next: NextFunction) => {
+    const decodedToken = req.user;
+const payload=req.body
+    await AuthServices.resetPassword(payload, decodedToken as JwtPayload);
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.CREATED,
+      message: "Password changed successfully ",
+      data: null,
+    });
+  }
+);
+
 const googleCallbackController = catchAsync(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async (req: Request, res: Response, next: NextFunction) => {
@@ -166,4 +175,5 @@ export const AuthControllers = {
   googleCallbackController,
   changePassword,
   setPassword,
+  forgotPassword,
 };

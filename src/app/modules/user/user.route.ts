@@ -8,22 +8,35 @@ import { validateRequest } from "../../middlewares/validateRequest";
 import { checkAuth } from "../../middlewares/checkAuth";
 import { Role } from "./user.interface";
 
-export const UserRoutes = Router();
+const router=Router()
 
-UserRoutes.post(
+export const UserRoutes = router;
+
+router.post(
   "/register",
   validateRequest(createUserZodSchema),
   UserController.createUser
 );
-UserRoutes.get(
+router.get(
+  "/me",
+  checkAuth(...Object.values(Role)),
+  UserController.getMe
+);
+router.get(
   "/all-users",
   checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
   UserController.getAllUsers
 );
+router.get(
+  "/:id",
+  checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
+  UserController.getSingleUser
+);
 
-UserRoutes.patch(
+router.patch(
   "/:id",
   validateRequest(updateUserZodSchema),
   checkAuth(...Object.values(Role)),
   UserController.updateUser
 );
+
