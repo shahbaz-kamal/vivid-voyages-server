@@ -48,6 +48,7 @@ interface EnvVars {
     PORT: string;
     USERNAME: string;
     PASSWORD: string;
+    OTP_EXPIRATION_TIME: string;
   };
 }
 
@@ -91,6 +92,7 @@ const loadEnvVariables = (): EnvVars => {
     "REDIS_USERNAME",
     "REDIS_PORT",
     "REDIS_HOST",
+    "REDIS_OTP_EXPIRATION_TIME",
   ];
   requiredVariables.forEach((key) => {
     if (!process.env[key]) {
@@ -144,6 +146,7 @@ const loadEnvVariables = (): EnvVars => {
       PORT: process.env.REDIS_PORT as string,
       USERNAME: process.env.REDIS_USERNAME as string,
       PASSWORD: process.env.REDIS_PASSWORD as string,
+      OTP_EXPIRATION_TIME: process.env.REDIS_OTP_EXPIRATION_TIME as string,
     },
   };
 };
