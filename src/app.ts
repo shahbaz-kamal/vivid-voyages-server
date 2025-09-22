@@ -27,8 +27,13 @@ app.use(passport.session());
 //rest
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
-app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: envVars.FRONTEND_URl,
+    credentials: true,
+  })
+);
 
 // router middlware
 app.use("/api/v1", router);

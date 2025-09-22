@@ -4,6 +4,7 @@ import { PaymentService } from "./payment.service";
 import { envVars } from "../../config/env";
 import { sendResponse } from "../../utils/sendResponse";
 
+
 const successPayment = catchAsync(async (req: Request, res: Response) => {
   const query = req.query;
   const result = await PaymentService.successPayment(
@@ -48,9 +49,21 @@ const initPayment = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getInvoiceDownloadUrl = catchAsync(
+  async (req: Request, res: Response, any) => {
+    const { paymentId } = req.params;
+    const result = await PaymentService.getInvoiceDownloadUrl(paymentId);
+    sendResponse(res, {
+      statusCode:201,
+      success: true,
+      message: "Invoice Download URL retrived",
+      data: result,
+    });
+  }
+);
 export const PaymentController = {
   successPayment,
   failPayment,
   cancelPayment,
-  initPayment,
+  initPayment,getInvoiceDownloadUrl
 };
