@@ -7,9 +7,12 @@ import {
 } from "passport-google-oauth20";
 import { envVars } from "./env";
 import { User } from "../modules/user/user.model";
-import { Role } from "../modules/user/user.interface";
+import { IsActive, Role } from "../modules/user/user.interface";
 import { Strategy as LocalStrategy } from "passport-local";
 import bcryptjs from "bcryptjs";
+import AppError from "../errorHelpers/AppError";
+
+import httpStatus from "http-status-codes";
 
 //google
 passport.use(
@@ -29,9 +32,21 @@ passport.use(
         const email = profile.emails?.[0].value;
         if (!email) return done(null, false, { message: "No email Found" });
 
-        let user = await User.findOne({ email });
-        if (!user) {
-          user = await User.create({
+        let isUserExist = await User.findOne({ email });
+        if (
+          isUserExist &&
+          (isUserExist.isActive === IsActive.BLOCKED ||
+            isUserExist.isActive === IsActive.INACTIVE)
+        ) {
+          return done(null, false, {
+            message: `User is ${isUserExist.isActive}`,
+          });
+        }
+        if (isUserExist && isUserExist.isDeleted) {
+          return done(null, false, { message: "User is deleted" });
+        }
+        if (!isUserExist) {
+          isUserExist = await User.create({
             name: profile.displayName,
             email,
             picture: profile.photos?.[0].value,
@@ -45,7 +60,7 @@ passport.use(
             ],
           });
         }
-        return done(null, user);
+        return done(null, isUserExist);
       } catch (error) {
         console.log(error);
         return done(error);
@@ -65,6 +80,13 @@ passport.use(
         const isUserExist = await User.findOne({ email });
         if (!isUserExist)
           return done(null, false, { message: "No user Found" });
+
+        if (isUserExist.isActive === IsActive.BLOCKED) {
+          return done(`User is ${isUserExist.isActive}`);
+        }
+        if (isUserExist.isDeleted) {
+          return done("User is deleted");
+        }
 
         const isGoogleAuthenticated = isUserExist.auths.some(
           (providerObject) => providerObject.provider === "google"

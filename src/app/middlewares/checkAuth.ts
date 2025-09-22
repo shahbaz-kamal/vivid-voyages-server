@@ -3,12 +3,12 @@ import AppError from "../errorHelpers/AppError";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { envVars } from "../config/env";
 import { User } from "../modules/user/user.model";
-import httpStatus from "http-status-codes"
+import httpStatus from "http-status-codes";
 import { IsActive } from "../modules/user/user.interface";
 
 export const checkAuth =
   (...authRoles: string[]) =>
- async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction) => {
     try {
       const accessToken = req.headers.authorization;
       if (!accessToken) {
@@ -19,10 +19,10 @@ export const checkAuth =
         accessToken,
         envVars.JWT_SECRET
       ) as JwtPayload;
-      
+
       const isUserExist = await User.findOne({
         email: verifiedToken.email,
-      })
+      });
       if (!isUserExist) {
         throw new AppError(httpStatus.BAD_REQUEST, "User dosent exist");
       }
@@ -32,10 +32,10 @@ export const checkAuth =
           `User is ${isUserExist.isActive}`
         );
       }
-      if (!isUserExist) {
+      if (isUserExist.isDeleted) {
         throw new AppError(httpStatus.BAD_REQUEST, "User is deleted");
       }
-    
+
       if (!authRoles.includes(verifiedToken.role)) {
         throw new AppError(403, "you are not permitted to view this route");
       }
