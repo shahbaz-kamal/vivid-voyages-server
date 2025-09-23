@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Booking } from "../booking/booking.model";
+import { PAYMENT_STATUS } from "../payment/payment.interface";
+import { Payment } from "../payment/payment.model";
 import { Tour, TourType } from "../tour/tour.model";
 import { IsActive } from "../user/user.interface";
 import { User } from "../user/user.model";
@@ -304,7 +306,55 @@ const getBookingStats = async () => {
 };
 
 const getPaymentStats = async () => {
-  console.log("getPaymentStats ");
+  const totalPaymentPromise = Payment.countDocuments();
+  const totalPaymentByStatusPromise = Payment.aggregate([
+    //stage1 group
+    {
+      $group: {
+        _id: "$status",
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  const totalRevenuePromise = Payment.aggregate([
+    //stage 1: group
+    {
+      $match: { status: PAYMENT_STATUS.PAID },
+    },
+    {
+      $group: {
+        _id: null,
+        totalRevenue: { $sum: "$amount" },
+      },
+    },
+    // {$unwind:"$totalPayment"}
+  ]);
+
+  const avgPaymentAmountPromise = Payment.aggregate([
+    //stage 1:grouping
+    {
+      $group: {
+        _id: null,
+        avgPayment: { $avg: "$amount" },
+      },
+    },
+  ]);
+
+  const [totalPayment, totalPaymentByStatus, totalRevenue, avgPaymentAmount] =
+    await Promise.all([
+      totalPaymentPromise,
+      totalPaymentByStatusPromise,
+      totalRevenuePromise,
+      avgPaymentAmountPromise,
+    ]);
+
+  return {
+    totalPayment,
+    totalPaymentByStatus,
+    totalRevenue: totalRevenue[0].totalRevenue,
+    avgPaymentAmount:avgPaymentAmount[0].avgPayment,
+  };
 };
 
 export const StatsService = {
