@@ -353,7 +353,6 @@ const getPaymentStats = async () => {
     totalPayment,
     totalPaymentByStatus,
     totalRevenue: totalRevenue[0].totalRevenue,
-    avgPaymentAmount:avgPaymentAmount[0].avgPayment,
   };
 };
 
